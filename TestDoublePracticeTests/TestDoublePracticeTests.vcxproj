@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C88FA3A9-0820-4F39-8F0F-78EEB977E2DA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>TestDoublePractice</RootNamespace>
+    <RootNamespace>TestDoublePracticeTests</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,7 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Hello.cpp" />
+    <ClCompile Include="HelloTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\gmock-1.7.0\msvc\2010\gmock.vcxproj">
