@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BMA150Accelerometercpp.cpp" />
     <ClCompile Include="HelloTests.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +88,9 @@
     <ProjectReference Include="..\gmock-1.7.0\msvc\2010\gmock_main.vcxproj">
       <Project>{e4ef614b-30df-4954-8c53-580a0bf6b589}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BMA150Accelerometer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
