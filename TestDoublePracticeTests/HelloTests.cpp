@@ -69,7 +69,7 @@ TEST(BMA150Accelerometer, When_selecting_the_X_register_and_the_chip_nacks_the_r
 
 }
 
-TEST(BMA150Accelerometer, DISABLED_When_reading_the_X_register_the_correct_I2C_commands_are_sent)
+TEST(BMA150Accelerometer, When_reading_the_X_register_the_correct_I2C_commands_are_sent)
 {
 	//Given
 	I2CMock i2CMock;
@@ -82,16 +82,24 @@ TEST(BMA150Accelerometer, DISABLED_When_reading_the_X_register_the_correct_I2C_c
 	EXPECT_CALL(i2CMock, Read(false)).WillOnce(Return(0));
 	EXPECT_CALL(i2CMock, Stop());
 
-	//When
-	accelerometer.ReadXRegisters();
-
-	//Then
-
-
-	/*Start
-		Write(address with write bit cleared)
-		Read(…) x 6 with ack set on all but last Read operation
-		Stop*/
+	//When, Then
+	ASSERT_EQ(0, accelerometer.ReadXRegisters());
 
 }
+TEST(BMA150Accelerometer, When_reading_the_X_register_X_data_is_recieved)
+{
+	//Given
+	I2CMock i2CMock;
+	BMA150Accelerometer accelerometer(&i2CMock);
 
+	::testing::InSequence inSequence;
+	EXPECT_CALL(i2CMock, Start());
+	EXPECT_CALL(i2CMock, Write(0x38 | 0x00)).WillOnce(Return(true));
+	EXPECT_CALL(i2CMock, Read(true)).WillOnce(Return(1));
+	EXPECT_CALL(i2CMock, Read(false)).WillOnce(Return(4));
+	EXPECT_CALL(i2CMock, Stop());
+
+	//When, Then
+	ASSERT_EQ(260, accelerometer.ReadXRegisters());
+	
+}

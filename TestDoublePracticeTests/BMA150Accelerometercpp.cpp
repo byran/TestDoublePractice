@@ -22,5 +22,10 @@ void BMA150Accelerometer::SelectXRegister()
 
 short BMA150Accelerometer::ReadXRegisters()
 {
-	return 0;
+	i2C->Start();
+	I2CWrite(0x38);
+	char msb = i2C->Read(true);
+	char lsb = i2C->Read(false);
+	i2C->Stop();
+	return ((msb << 8) + lsb);
 }
