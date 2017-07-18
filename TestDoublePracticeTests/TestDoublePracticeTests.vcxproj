@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BMA150Accelerometercpp.cpp" />
-    <ClCompile Include="HelloTests.cpp" />
+    <ClCompile Include="BMA150AccelerometerTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\gmock-1.7.0\msvc\2010\gmock.vcxproj">
